@@ -63,56 +63,55 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white overflow-hidden scroll-smooth">
       
-      {/* 1. HERO SECTION DENGAN EFEK CINEMATIC POSTER */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#050505]">
+      {/* 1. HERO SECTION */}
+      <section className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden bg-[#050505]">
         
-        {/* Efek Spotlight Terang dari Atas */}
-        <div className="absolute top-[-20%] md:top-[-15%] left-1/2 -translate-x-1/2 w-[35rem] md:w-[65rem] h-[30rem] md:h-[60rem] bg-white/40 blur-[100px] md:blur-[150px] rounded-full pointer-events-none z-0" />
-
         {/* Aksesoris Teks Kecil Kiri Kanan */}
-        <div className="absolute top-6 left-4 right-4 md:left-10 md:right-10 flex justify-between w-full max-w-5xl mx-auto px-4 md:px-8 z-10">
+        <div className="absolute top-6 left-4 right-4 md:left-10 md:right-10 flex justify-between w-full max-w-5xl mx-auto px-4 md:px-8 z-30">
           <span className="text-[8px] md:text-xs tracking-widest text-zinc-500 font-bold uppercase">AI-Enthusiast</span>
           <span className="text-[8px] md:text-xs tracking-widest text-zinc-500 font-bold uppercase">Professional Content Creative</span>
         </div>
 
-        {/* WADAH UTAMA TEKS & FOTO DIBANGUN ULANG AGAR PRESISI DI SEMUA DEVICE */}
-        {/* Menggunakan min-h-[450px] agar di HP foto tidak hilang tertimpa margin negatif */}
-        <div className="relative w-full flex items-center justify-center min-h-[400px] md:min-h-[650px] mt-12 md:mt-0">
+        {/* WADAH OVERLAP: Memaksa Spotlight, Foto, dan Teks bertumpuk sempurna di 1 titik pusat */}
+        <div className="relative w-full h-[450px] sm:h-[550px] md:h-[850px] mt-10 md:mt-0 overflow-visible">
           
-          {/* LAYER 1: TEKS RAKSASA (Absolute di tengah persis) */}
-          <motion.h1
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="absolute z-0 text-center font-['Helvetica_Neue',_Helvetica,_Arial,_sans-serif] font-extrabold text-[4.5rem] sm:text-[6rem] md:text-[10.5rem] leading-[0.8] tracking-tighter text-white opacity-95 blur-[1px] md:blur-[4px]"
-          >
-            CREATIVE <br /> STRATEGIST
-          </motion.h1>
+          {/* LAYER 0: SPOTLIGHT CAHAYA (Diperterang untuk memastikan gradasi terlihat jelas di HP) */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[750px] md:h-[750px] bg-white/60 md:bg-white/40 blur-[90px] md:blur-[130px] rounded-full pointer-events-none z-0" />
 
-          {/* LAYER 2: FOTO SILUET (Diperbesar, dan diturunkan dengan translate-y agar kepala pas di tengah teks) */}
+          {/* LAYER 1: FOTO SILUET RAKSASA (Posisinya tepat di belakang teks) */}
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-            // max-w diperbesar: 300px untuk HP, 500px untuk Desktop
-            // translate-y-6 dan translate-y-12 menurunkan foto ke posisi sempurna
-            className="relative z-10 w-full max-w-[300px] md:max-w-[500px] pointer-events-none flex justify-center translate-y-6 md:translate-y-12"
+            // translate-y diatur minus agar badannya naik ke tengah, ukurannya diperbesar drastis
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[45%] md:-translate-y-[40%] z-10 w-full max-w-[340px] sm:max-w-[480px] md:max-w-[800px] pointer-events-none flex justify-center"
           >
             <img 
               src="https://res.cloudinary.com/tmmaq361/image/upload/v1786441159/NOVA_DESIGN.png" 
               alt="Profil Algifari"
-              className="w-full h-auto object-contain drop-shadow-2xl"
+              className="w-full h-auto object-contain"
               style={{
-                // Masking disederhanakan menggunakan warna solid (black to transparent) agar tidak nge-bug di iOS Safari
-                maskImage: "linear-gradient(to bottom, black 50%, transparent 100%)",
-                WebkitMaskImage: "linear-gradient(to bottom, black 50%, transparent 100%)"
+                // Masking bawah agar siluet memudar halus ke hitam
+                maskImage: "linear-gradient(to bottom, black 65%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to bottom, black 65%, transparent 100%)"
               }}
             />
           </motion.div>
+
+          {/* LAYER 2: TEKS JUDUL (Posisinya tepat di depan foto) */}
+          <motion.h1
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 text-center font-['Helvetica_Neue',_Helvetica,_Arial,_sans-serif] font-extrabold text-[4.2rem] sm:text-[6.5rem] md:text-[11rem] leading-[0.8] tracking-tighter text-white opacity-95 drop-shadow-2xl w-full"
+          >
+            CREATIVE <br /> STRATEGIST
+          </motion.h1>
+
         </div>
 
-        {/* LAYER 3: SUB-JUDUL & TOMBOL (Disesuaikan marginnya menyesuaikan container di atas) */}
-        <div className="relative z-20 max-w-2xl text-center px-4 mt-6 md:-mt-8">
+        {/* LAYER 3: DESKRIPSI & TOMBOL (Aman terletak di bawah wadah overlap) */}
+        <div className="relative z-30 max-w-2xl text-center px-4 -mt-10 md:-mt-24">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
