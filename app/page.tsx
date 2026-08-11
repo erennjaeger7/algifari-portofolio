@@ -1,60 +1,5 @@
 "use client";
 
-<<<<<<< HEAD
-import { motion } from "framer-motion";
-
-export default function Home() {
-  return (
-    <main className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-6 font-sans overflow-hidden">
-      {/* Efek Cahaya (Glow) di Background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30rem] h-[30rem] bg-zinc-800/20 blur-[120px] rounded-full pointer-events-none" />
-
-      <div className="relative z-10 max-w-3xl text-center">
-        {/* Teks Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-5xl md:text-7xl font-semibold tracking-tight mb-6"
-        >
-          AI-Driven <br className="hidden md:block" /> Creative Strategist.
-        </motion.h1>
-
-        {/* Teks Sub-headline */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          className="text-lg md:text-xl text-zinc-400 mb-10 leading-relaxed font-light"
-        >
-          Menggabungkan keahlian produksi visual profesional, teknologi AI, dan strategi GMV Max untuk meroketkan skala bisnis brand.
-        </motion.p>
-
-        {/* Tombol Interaktif */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-        >
-          <a
-            href="#case-studies"
-            className="px-8 py-3 rounded-full bg-white text-black font-medium hover:scale-105 transition-transform duration-300"
-          >
-            Lihat Studi Kasus
-          </a>
-          <a
-            href="mailto:algifarimuhammadardesta@gmail.com"
-            className="px-8 py-3 rounded-full bg-zinc-900 border border-zinc-800 text-white font-medium hover:bg-zinc-800 transition-colors duration-300 backdrop-blur-md"
-          >
-            Hubungi Saya
-          </a>
-        </motion.div>
-      </div>
-    </main>
-  );
-}
-=======
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Montserrat } from "next/font/google";
@@ -65,7 +10,7 @@ const montserrat = Montserrat({ subsets: ["latin"], weight: "300" });
 export default function Home() {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
-  // 4 Data Portofolio Utama
+  // Data Portofolio Utama
   const caseStudies = [
     {
       id: 1,
@@ -73,24 +18,23 @@ export default function Home() {
       metrics: "6.2M Views",
       description: "Strategi hook visual menggunakan kemiripan model internal dengan Afgan. Berhasil memicu diskusi audiens dan viralitas organik.",
       type: "tiktok", 
-      videoId: "7564629810203331860", 
-      tiktokLink: "https://vt.https://www.tiktok.com/@bapinstore/video/7564629810203331860?_d=secCgYIASAHKAESPgo8CHPjhop9I6%2BnUnGG68xQFrdhYigmMwIjEuDPVMVlWQKrJGpmMW%2FffP2kO%2BIHTXM5Zeh9qOdM86iXg5kNGgA%3D&_r=1&share_app_id=1233&share_item_id=7564629810203331860&timestamp=1767555737&u_code=efm4eegmiff45j&utm_campaign=client_share&utm_source=short_fallback.com/ZS5yo61ny/", 
+      videoId: "7210452903734136091", 
+      tiktokLink: "https://vt.tiktok.com/ZS5yo61ny/", 
     },
     {
       id: 2,
       title: "Personal Branding: On-Camera Talent",
-      metrics: "Public Speaking and On-Cam Skills",
+      metrics: "High Retention",
       description: "Tampil di depan kamera sebagai talent dadakan dengan pembawaan natural untuk membangun kedekatan audiens dengan brand.",
       type: "tiktok-custom", 
-      videoUrl: "https://res.cloudinary.com/tmmaq361/video/upload/v1786442465/ssstik.io_1786442389184.mp4", 
-      tiktokStats: { username: "@bapinstore", likes: "27", comments: "2", shares: "1" },
-      tiktokLink: "https://www.tiktok.com/@bapinstore/video/7451531023889763602", 
+      videoUrl: "https://res.cloudinary.com/demo/video/upload/v1648719582/elephants.mp4", 
+      tiktokStats: { username: "@alseventeen_", likes: "2.1K", comments: "45", shares: "112" },
+      tiktokLink: "https://instagram.com/alseventeen_", 
     },
     {
       id: 3,
       title: "Sales Showcase: GMV Max",
       metrics: "1M Views | High GMV Sales",
-      // Deskripsi diubah menjadi elemen JSX
       description: (
         <>
           Pendekatan sensorik (ASMR) dan hook 3 detik pertama untuk menahan audiens di konten keranjang kuning.{" "}
@@ -106,11 +50,12 @@ export default function Home() {
     },
     {
       id: 4,
-      title: "High Quality Visual Production + GMV Sales Objective",
+      title: "High Quality Visual Production",
       metrics: "Premium Output",
-      description: "Pengambilan konten sinematik resolusi tinggi menggunakan kombinasi kamera profesional dan pengeditan tingkat lanjut untuk kebutuhan komersial brand.",
+      description: "Pengambilan gambar sinematik resolusi tinggi menggunakan ekosistem kamera profesional untuk kebutuhan komersial brand.",
       type: "tiktok-custom",
-      videoUrl: "https://res.cloudinary.com/tmmaq361/video/upload/v1786443176/TRACKPANTS_SPAM_2.mp4",
+      videoUrl: "https://res.cloudinary.com/demo/video/upload/v1648719582/elephants.mp4", 
+      tiktokStats: { username: "@bapinstore", likes: "5.4K", comments: "89", shares: "400" },
       tiktokLink: "https://tiktok.com/@bapinstore", 
     }
   ];
@@ -118,63 +63,108 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white overflow-hidden scroll-smooth">
       
-      {/* 1. HERO SECTION (REVISI RESPONSIF & MOBILE CENTERED) */}
-      <section className="relative min-h-screen flex flex-col items-center justify-start pt-20 overflow-hidden bg-[#050505]">
+      {/* 1. HERO SECTION DENGAN EFEK CINEMATIC POSTER */}
+      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#050505]">
         
-        {/* Spotlight lebih stabil untuk mobile */}
-        <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[20rem] md:w-[65rem] h-[20rem] md:h-[60rem] bg-white/30 blur-[80px] md:blur-[150px] rounded-full pointer-events-none z-0" />
+        {/* Efek Spotlight Terang dari Atas */}
+        <div className="absolute top-[-20%] md:top-[-15%] left-1/2 -translate-x-1/2 w-[35rem] md:w-[65rem] h-[30rem] md:h-[60rem] bg-white/40 blur-[100px] md:blur-[150px] rounded-full pointer-events-none z-0" />
 
-        <div className="relative w-full max-w-5xl flex flex-col items-center justify-center px-4">
+        {/* Aksesoris Teks Kecil Kiri Kanan */}
+        <div className="absolute top-6 left-4 right-4 md:left-10 md:right-10 flex justify-between w-full max-w-5xl mx-auto px-4 md:px-8 z-10">
+          <span className="text-[8px] md:text-xs tracking-widest text-zinc-500 font-bold uppercase">AI-Driven</span>
+          <span className="text-[8px] md:text-xs tracking-widest text-zinc-500 font-bold uppercase">Vibecoding</span>
+        </div>
+
+        {/* CONTAINER OVERLAP: Menyatukan Teks dan Foto agar posisinya presisi */}
+        <div className="relative w-full max-w-5xl flex flex-col items-center justify-center mt-10 md:mt-0">
           
-          {/* LAYER 1: TEKS RAKSASA (Ukuran disesuaikan agar tidak overflow di HP) */}
+          {/* LAYER 1: TEKS RAKSASA DI BELAKANG */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="relative z-10 text-center font-['Helvetica_Neue',_Helvetica,_Arial,_sans-serif] font-extrabold text-[3.8rem] md:text-[8.5rem] leading-[0.8] tracking-tighter text-white opacity-95 blur-[1px] md:blur-[4px] mt-10"
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="absolute top-0 left-0 right-0 z-0 text-center font-['Helvetica_Neue',_Helvetica,_Arial,_sans-serif] font-extrabold text-[4.2rem] md:text-[9.5rem] leading-[0.85] tracking-tighter text-white opacity-95 blur-[2px] md:blur-[4px]"
           >
             CREATIVE <br /> STRATEGIST
           </motion.h1>
 
-          {/* LAYER 2: FOTO (Dinaikkan agar benar-benar di tengah teks) */}
+          {/* LAYER 2: FOTO SILUET DARI CLOUDINARY */}
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            className="relative z-20 w-full max-w-[220px] md:max-w-[420px] mt-4 md:mt-12 pointer-events-none flex justify-center"
+            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+            // mt-16 untuk HP, mt-36 untuk Desktop -> Mendorong foto turun menutupi celah antar baris teks
+            className="relative z-10 w-full max-w-[240px] md:max-w-[420px] mt-16 md:mt-36 pointer-events-none flex justify-center"
           >
             <img 
               src="https://res.cloudinary.com/tmmaq361/image/upload/v1786441159/NOVA_DESIGN.png" 
               alt="Profil Algifari"
               className="w-full h-auto object-contain drop-shadow-2xl"
               style={{
-                // Masking diperhalus agar transisi di mobile tidak kaku
-                maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)",
-                WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)"
+                // Masking Gradient
+                maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)",
+                WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)"
               }}
             />
           </motion.div>
+        </div>
 
-          {/* LAYER 3: SUB-JUDUL & TOMBOL (Ditarik naik agar tidak terlalu jauh) */}
-          <div className="relative z-30 max-w-xl text-center -mt-6 md:-mt-10 px-4">
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className={`${montserrat.className} text-xs md:text-lg text-white mb-6 leading-relaxed font-light [text-shadow:_0_0_8px_rgba(255,255,255,0.8)]`}
-            >
-              Menggabungkan <strong className="font-bold">produksi visual</strong>, <strong className="font-bold">AI</strong>, dan <strong className="font-bold">strategi GMV Max</strong>.
-            </motion.p>
-            
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-              className="flex flex-col gap-3 justify-center items-center"
-            >
-              <a href="#case-studies" className="px-6 py-2.5 rounded-full bg-white text-black text-sm font-medium hover:scale-105 transition-transform shadow-xl">
-                Lihat Studi Kasus
-              </a>
-            </motion.div>
-          </div>
+        {/* LAYER 3: SUB-JUDUL & TOMBOL */}
+        <div className="relative z-20 max-w-2xl text-center -mt-8 md:-mt-16 px-4">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+            className={`${montserrat.className} text-sm md:text-lg text-zinc-200 mb-8 leading-relaxed font-light drop-shadow-md [text-shadow:_0_0_8px_rgba(255,255,255,0.6),_0_0_15px_rgba(255,255,255,0.2)]`}
+          >
+            Menggabungkan keahlian produksi visual profesional, <strong className="font-bold text-white">teknologi AI</strong>, dan <strong className="font-bold text-white">strategi GMV Max</strong> untuk meroketkan skala bisnis brand.
+          </motion.p>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          >
+            <a href="#case-studies" className="px-8 py-3 rounded-full bg-white text-black font-medium hover:scale-105 transition-transform duration-300 shadow-xl">
+              Lihat Karya Saya
+            </a>
+
+            <div className="relative">
+              <button 
+                onClick={() => setIsContactOpen(!isContactOpen)}
+                className="px-8 py-3 rounded-full bg-zinc-900 border border-zinc-800 text-white font-medium hover:bg-white hover:text-black transition-colors duration-300 backdrop-blur-md flex items-center justify-center gap-2 w-full sm:w-auto shadow-xl"
+              >
+                Hubungi Saya
+                <svg className={`w-4 h-4 transition-transform duration-300 ${isContactOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+              </button>
+
+              <AnimatePresence>
+                {isContactOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full mt-3 left-1/2 -translate-x-1/2 w-56 p-2 bg-zinc-900/90 border border-zinc-800 rounded-2xl shadow-2xl backdrop-blur-xl flex flex-col gap-1 z-50 text-sm"
+                  >
+                    <a href="mailto:algifarimuhammadardesta@gmail.com" target="_blank" rel="noopener noreferrer" className={`flex items-center gap-3 p-3 rounded-xl hover:bg-zinc-800 hover:text-white transition-colors ${montserrat.className}`}>
+                      <svg className="w-5 h-5 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                      Email
+                    </a>
+                    <a href="https://instagram.com/alseventeen_" target="_blank" rel="noopener noreferrer" className={`flex items-center gap-3 p-3 rounded-xl hover:bg-zinc-800 hover:text-white transition-colors ${montserrat.className}`}>
+                      <svg className="w-5 h-5 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01M6.5 6.5h11A3 3 0 0120.5 9.5v11a3 3 0 01-3 3h-11a3 3 0 01-3-3v-11a3 3 0 013-3z"></path></svg>
+                      Instagram
+                    </a>
+                    <a href="https://wa.me/6285224595559" target="_blank" rel="noopener noreferrer" className={`flex items-center gap-3 p-3 rounded-xl hover:bg-zinc-800 hover:text-white transition-colors ${montserrat.className}`}>
+                      <svg className="w-5 h-5 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 21l1.65-3.8a9 9 0 113.4 2.9L3 21z"></path></svg>
+                      WhatsApp
+                    </a>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -188,14 +178,14 @@ export default function Home() {
           className="mb-16 md:text-center"
         >
           <h2 className="font-['Helvetica_Neue',_Helvetica,_Arial,_sans-serif] font-extrabold text-3xl md:text-5xl tracking-tight mb-4">
-            My work.
+            Mesin Penghasil GMV.
           </h2>
           <p className={`${montserrat.className} text-zinc-400 md:text-lg`}>
-            List of my creativity through High Quality Shoots, Content Creation and AI Development.
+            Analisis strategi di balik konten organik dan komersial dengan jutaan penayangan.
           </p>
         </motion.div>
 
-        {/* Grid 4 Kolom untuk Layar Besar, 2 Kolom Tablet */}
+        {/* Grid 4 Kolom */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {caseStudies.map((study, index) => (
             <motion.div
@@ -209,12 +199,10 @@ export default function Home() {
               <div className="relative h-[480px] w-full bg-black">
                 {study.type === 'tiktok' ? (
                   <iframe
-                    // Menggunakan versi player/v1 dan menambahkan parameter autoplay, muted, dan loop
                     src={`https://www.tiktok.com/player/v1/${study.videoId}?autoplay=1&muted=1&mute=1&loop=1`}
                     className="w-full h-full"
                     allowFullScreen
                     scrolling="no"
-                    // Menambahkan izin (allow) spesifik agar browser mengizinkan autoplay
                     allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share; fullscreen"
                   ></iframe>
                 ) : (
@@ -313,4 +301,3 @@ export default function Home() {
     </main>
   );
 }
->>>>>>> 8505012 (Finalisasi desain UI dan penambahan efek neon)
