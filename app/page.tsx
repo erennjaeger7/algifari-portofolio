@@ -75,21 +75,30 @@ export default function Home() {
         {/* WADAH OVERLAP: Memaksa Spotlight, Foto, dan Teks bertumpuk sempurna di 1 titik pusat */}
         <div className="relative w-full h-[450px] sm:h-[550px] md:h-[850px] mt-10 md:mt-0 overflow-visible">
           
-          {/* LAYER 0: SPOTLIGHT CAHAYA (Diperterang untuk memastikan gradasi terlihat jelas di HP) */}
+          {/* LAYER 0: SPOTLIGHT CAHAYA */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[750px] md:h-[750px] bg-white/60 md:bg-white/40 blur-[90px] md:blur-[130px] rounded-full pointer-events-none z-0" />
 
-          {/* LAYER 1: FOTO SILUET RAKSASA (Posisinya tepat di belakang teks) */}
+          {/* LAYER 1: TEKS JUDUL (Posisinya sekarang di BELAKANG foto, dengan efek blur) */}
+          <motion.h1
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-center font-['Helvetica_Neue',_Helvetica,_Arial,_sans-serif] font-extrabold text-[4.2rem] sm:text-[6.5rem] md:text-[11rem] leading-[0.8] tracking-tighter text-white opacity-95 blur-[2px] md:blur-[5px] w-full"
+          >
+            CREATIVE <br /> STRATEGIST
+          </motion.h1>
+
+          {/* LAYER 2: FOTO SILUET RAKSASA (Posisinya di DEPAN teks) */}
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-            // translate-y diatur minus agar badannya naik ke tengah, ukurannya diperbesar drastis
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[45%] md:-translate-y-[40%] z-10 w-full max-w-[340px] sm:max-w-[480px] md:max-w-[800px] pointer-events-none flex justify-center"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[45%] md:-translate-y-[40%] z-20 w-full max-w-[340px] sm:max-w-[480px] md:max-w-[800px] pointer-events-none flex justify-center"
           >
             <img 
               src="https://res.cloudinary.com/tmmaq361/image/upload/v1786441159/NOVA_DESIGN.png" 
               alt="Profil Algifari"
-              className="w-full h-auto object-contain"
+              className="w-full h-auto object-contain drop-shadow-2xl"
               style={{
                 // Masking bawah agar siluet memudar halus ke hitam
                 maskImage: "linear-gradient(to bottom, black 65%, transparent 100%)",
@@ -98,19 +107,9 @@ export default function Home() {
             />
           </motion.div>
 
-          {/* LAYER 2: TEKS JUDUL (Posisinya tepat di depan foto) */}
-          <motion.h1
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 text-center font-['Helvetica_Neue',_Helvetica,_Arial,_sans-serif] font-extrabold text-[4.2rem] sm:text-[6.5rem] md:text-[11rem] leading-[0.8] tracking-tighter text-white opacity-95 drop-shadow-2xl w-full"
-          >
-            CREATIVE <br /> STRATEGIST
-          </motion.h1>
-
         </div>
 
-        {/* LAYER 3: DESKRIPSI & TOMBOL (Aman terletak di bawah wadah overlap) */}
+        {/* LAYER 3: DESKRIPSI & TOMBOL */}
         <div className="relative z-30 max-w-2xl text-center px-4 -mt-10 md:-mt-24">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
