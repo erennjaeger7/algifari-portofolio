@@ -75,42 +75,44 @@ export default function Home() {
           <span className="text-[8px] md:text-xs tracking-widest text-zinc-500 font-bold uppercase">Professional Content Creative</span>
         </div>
 
-        {/* CONTAINER OVERLAP: Menyatukan Teks dan Foto agar posisinya presisi */}
-        <div className="relative w-full max-w-5xl flex flex-col items-center justify-center mt-10 md:mt-0">
+        {/* WADAH UTAMA TEKS & FOTO DIBANGUN ULANG AGAR PRESISI DI SEMUA DEVICE */}
+        {/* Menggunakan min-h-[450px] agar di HP foto tidak hilang tertimpa margin negatif */}
+        <div className="relative w-full flex items-center justify-center min-h-[400px] md:min-h-[650px] mt-12 md:mt-0">
           
-          {/* LAYER 1: TEKS RAKSASA DI BELAKANG */}
+          {/* LAYER 1: TEKS RAKSASA (Absolute di tengah persis) */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="absolute top-0 left-0 right-0 z-0 text-center font-['Helvetica_Neue',_Helvetica,_Arial,_sans-serif] font-extrabold text-[4.2rem] md:text-[9.5rem] leading-[0.85] tracking-tighter text-white opacity-95 blur-[2px] md:blur-[4px]"
+            className="absolute z-0 text-center font-['Helvetica_Neue',_Helvetica,_Arial,_sans-serif] font-extrabold text-[4.5rem] sm:text-[6rem] md:text-[10.5rem] leading-[0.8] tracking-tighter text-white opacity-95 blur-[1px] md:blur-[4px]"
           >
             CREATIVE <br /> STRATEGIST
           </motion.h1>
 
-          {/* LAYER 2: FOTO SILUET DARI CLOUDINARY */}
+          {/* LAYER 2: FOTO SILUET (Diperbesar, dan diturunkan dengan translate-y agar kepala pas di tengah teks) */}
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-            // mt-16 untuk HP, mt-36 untuk Desktop -> Mendorong foto turun menutupi celah antar baris teks
-            className="relative z-10 w-full max-w-[240px] md:max-w-[420px] mt-16 md:mt-36 pointer-events-none flex justify-center"
+            // max-w diperbesar: 300px untuk HP, 500px untuk Desktop
+            // translate-y-6 dan translate-y-12 menurunkan foto ke posisi sempurna
+            className="relative z-10 w-full max-w-[300px] md:max-w-[500px] pointer-events-none flex justify-center translate-y-6 md:translate-y-12"
           >
             <img 
               src="https://res.cloudinary.com/tmmaq361/image/upload/v1786441159/NOVA_DESIGN.png" 
               alt="Profil Algifari"
               className="w-full h-auto object-contain drop-shadow-2xl"
               style={{
-                // Masking Gradient
-                maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)",
-                WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)"
+                // Masking disederhanakan menggunakan warna solid (black to transparent) agar tidak nge-bug di iOS Safari
+                maskImage: "linear-gradient(to bottom, black 50%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to bottom, black 50%, transparent 100%)"
               }}
             />
           </motion.div>
         </div>
 
-        {/* LAYER 3: SUB-JUDUL & TOMBOL */}
-        <div className="relative z-20 max-w-2xl text-center -mt-8 md:-mt-16 px-4">
+        {/* LAYER 3: SUB-JUDUL & TOMBOL (Disesuaikan marginnya menyesuaikan container di atas) */}
+        <div className="relative z-20 max-w-2xl text-center px-4 mt-6 md:-mt-8">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -130,10 +132,10 @@ export default function Home() {
               Lihat Karya Saya
             </a>
 
-            <div className="relative">
+            <div className="relative w-full sm:w-auto">
               <button 
                 onClick={() => setIsContactOpen(!isContactOpen)}
-                className="px-8 py-3 rounded-full bg-zinc-900 border border-zinc-800 text-white font-medium hover:bg-white hover:text-black transition-colors duration-300 backdrop-blur-md flex items-center justify-center gap-2 w-full sm:w-auto shadow-xl"
+                className="w-full sm:w-auto px-8 py-3 rounded-full bg-zinc-900 border border-zinc-800 text-white font-medium hover:bg-white hover:text-black transition-colors duration-300 backdrop-blur-md flex items-center justify-center gap-2 shadow-xl"
               >
                 Hubungi Saya
                 <svg className={`w-4 h-4 transition-transform duration-300 ${isContactOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -146,7 +148,7 @@ export default function Home() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full mt-3 left-1/2 -translate-x-1/2 w-56 p-2 bg-zinc-900/90 border border-zinc-800 rounded-2xl shadow-2xl backdrop-blur-xl flex flex-col gap-1 z-50 text-sm"
+                    className="absolute top-full mt-3 left-1/2 -translate-x-1/2 w-full sm:w-56 p-2 bg-zinc-900/90 border border-zinc-800 rounded-2xl shadow-2xl backdrop-blur-xl flex flex-col gap-1 z-50 text-sm"
                   >
                     <a href="mailto:algifarimuhammadardesta@gmail.com" target="_blank" rel="noopener noreferrer" className={`flex items-center gap-3 p-3 rounded-xl hover:bg-zinc-800 hover:text-white transition-colors ${montserrat.className}`}>
                       <svg className="w-5 h-5 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
