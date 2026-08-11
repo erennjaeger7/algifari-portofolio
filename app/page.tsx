@@ -61,10 +61,12 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-black text-white overflow-hidden scroll-smooth">
+    // overflow-hidden diganti menjadi overflow-x-hidden agar dropdown bisa keluar batas secara vertikal
+    <main className="min-h-screen bg-black text-white overflow-x-hidden scroll-smooth">
       
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden bg-[#050505]">
+      {/* overflow-hidden dihapus dari sini */}
+      <section className="relative min-h-screen flex flex-col items-center justify-start bg-[#050505]">
         
         {/* Aksesoris Teks Kecil Kiri Kanan */}
         <div className="absolute top-6 left-4 right-4 md:left-10 md:right-10 flex justify-between w-full max-w-5xl mx-auto px-4 md:px-8 z-30">
@@ -100,7 +102,6 @@ export default function Home() {
               alt="Profil Algifari"
               className="w-full h-auto object-contain drop-shadow-2xl"
               style={{
-                // Masking bawah agar siluet memudar halus ke hitam
                 maskImage: "linear-gradient(to bottom, black 65%, transparent 100%)",
                 WebkitMaskImage: "linear-gradient(to bottom, black 65%, transparent 100%)"
               }}
@@ -130,6 +131,7 @@ export default function Home() {
               Lihat Karya Saya
             </a>
 
+            {/* Menu Dropdown Contact */}
             <div className="relative w-full sm:w-auto">
               <button 
                 onClick={() => setIsContactOpen(!isContactOpen)}
