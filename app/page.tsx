@@ -18,18 +18,18 @@ export default function Home() {
       metrics: "6.2M Views",
       description: "Strategi hook visual menggunakan kemiripan model internal dengan Afgan. Berhasil memicu diskusi audiens dan viralitas organik.",
       type: "tiktok", 
-      videoId: "7210452903734136091", 
-      tiktokLink: "https://vt.tiktok.com/ZS5yo61ny/", 
+      videoId: "7564629810203331860", 
+      tiktokLink: "https://www.tiktok.com/@bapinstore/video/7564629810203331860?_r=1&_d=secCgYIASAHKAESPgo8WNHAnXABp1GxAFQUpOmmoL36B9BQPtzO7bODcPnMNosA1QkZT9IaQXu7EkKvUZFmDw4PvnokxwRQ2aoEGgA%3D&u_code=efm4eegmiff45j&share_item_id=7564629810203331860&timestamp=1767555737&utm_campaign=client_share&utm_source=short_fallback&share_app_id=1233", 
     },
     {
       id: 2,
       title: "Personal Branding: On-Camera Talent",
-      metrics: "High Retention",
+      metrics: "Public Speaking and On-Cam Skills",
       description: "Tampil di depan kamera sebagai talent dadakan dengan pembawaan natural untuk membangun kedekatan audiens dengan brand.",
       type: "tiktok-custom", 
-      videoUrl: "https://res.cloudinary.com/demo/video/upload/v1648719582/elephants.mp4", 
-      tiktokStats: { username: "@alseventeen_", likes: "2.1K", comments: "45", shares: "112" },
-      tiktokLink: "https://instagram.com/alseventeen_", 
+      videoUrl: "https://res.cloudinary.com/tmmaq361/video/upload/v1786442465/ssstik.io_1786442389184.mp4", 
+      tiktokStats: { username: "@bapinstore", likes: "27", comments: "2", shares: "1" },
+      tiktokLink: "https://www.tiktok.com/@bapinstore/video/7451531023889763602", 
     },
     {
       id: 3,
@@ -50,12 +50,12 @@ export default function Home() {
     },
     {
       id: 4,
-      title: "High Quality Visual Production",
+      title: "High Quality Visual Production for High Quality GMV-Max Sales Content",
       metrics: "Premium Output",
-      description: "Pengambilan gambar sinematik resolusi tinggi menggunakan ekosistem kamera profesional untuk kebutuhan komersial brand.",
+      description: "Pengambilan gambar sinematik resolusi tinggi dengan kamera profesional dan pengeditan tingkat lanjut untuk kebutuhan komersial brand.",
       type: "tiktok-custom",
-      videoUrl: "https://res.cloudinary.com/demo/video/upload/v1648719582/elephants.mp4", 
-      tiktokStats: { username: "@bapinstore", likes: "5.4K", comments: "89", shares: "400" },
+      videoUrl: "https://res.cloudinary.com/tmmaq361/video/upload/v1786443176/TRACKPANTS_SPAM_2.mp4", 
+      tiktokStats: { username: "@bapinstore", likes: "N/A", comments: "N/A", shares: "N/A" },
       tiktokLink: "https://tiktok.com/@bapinstore", 
     }
   ];
@@ -71,8 +71,8 @@ export default function Home() {
 
         {/* Aksesoris Teks Kecil Kiri Kanan */}
         <div className="absolute top-6 left-4 right-4 md:left-10 md:right-10 flex justify-between w-full max-w-5xl mx-auto px-4 md:px-8 z-10">
-          <span className="text-[8px] md:text-xs tracking-widest text-zinc-500 font-bold uppercase">AI-Driven</span>
-          <span className="text-[8px] md:text-xs tracking-widest text-zinc-500 font-bold uppercase">Vibecoding</span>
+          <span className="text-[8px] md:text-xs tracking-widest text-zinc-500 font-bold uppercase">AI-Enthusiast</span>
+          <span className="text-[8px] md:text-xs tracking-widest text-zinc-500 font-bold uppercase">Professional Content Creative</span>
         </div>
 
         {/* CONTAINER OVERLAP: Menyatukan Teks dan Foto agar posisinya presisi */}
