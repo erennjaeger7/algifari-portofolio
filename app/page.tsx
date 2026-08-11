@@ -118,7 +118,7 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
             className={`${montserrat.className} text-sm md:text-lg text-zinc-200 mb-8 leading-relaxed font-light drop-shadow-md [text-shadow:_0_0_8px_rgba(255,255,255,0.6),_0_0_15px_rgba(255,255,255,0.2)]`}
           >
-            Menggabungkan keahlian produksi visual profesional, <strong className="font-bold text-white">teknologi AI</strong>, dan <strong className="font-bold text-white">strategi GMV Max</strong> untuk meroketkan skala bisnis brand.
+            Menggabungkan keahlian produksi <strong className="font-bold text-white"> Visual Profesional, Teknologi AI</strong>, dan <strong className="font-bold text-white">Strategi GMV Max</strong> untuk <strong className="font-bold text-white">Meningkatkan Skala Bisnis Brand.</strong>
           </motion.p>
           
           <motion.div
@@ -180,10 +180,10 @@ export default function Home() {
           className="mb-16 md:text-center"
         >
           <h2 className="font-['Helvetica_Neue',_Helvetica,_Arial,_sans-serif] font-extrabold text-3xl md:text-5xl tracking-tight mb-4">
-            Mesin Penghasil GMV.
+            What I Do
           </h2>
           <p className={`${montserrat.className} text-zinc-400 md:text-lg`}>
-            Analisis strategi di balik konten organik dan komersial dengan jutaan penayangan.
+            Memperlihatkan Rangkuman Karya terbaik selama berkarir.
           </p>
         </motion.div>
 
