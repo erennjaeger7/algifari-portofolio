@@ -60,40 +60,12 @@ export default function Home() {
     }
   ];
 
-  // Data Akun Social Media dengan ER dan Avatar (Ganti link avatar dengan URL gambar asli Anda di Cloudinary)
+  // Data Akun Social Media dengan ER
   const socialAccounts = [
-    { 
-      id: 1, 
-      username: "@terramedia_", 
-      url: "https://www.tiktok.com/@terramedia_", 
-      label: "Media & Entertainment", 
-      er: "5.669%",
-      avatar: "https://ui-avatars.com/api/?name=Terra+Media&background=0D8ABC&color=fff&size=150"
-    },
-    { 
-      id: 2, 
-      username: "@alseventeen", 
-      url: "https://www.tiktok.com/@alseventeen", 
-      label: "Personal Branding", 
-      er: "11.644,74%",
-      avatar: "https://ui-avatars.com/api/?name=Alseventeen&background=1D1D1D&color=fff&size=150"
-    },
-    { 
-      id: 3, 
-      username: "@kami.pria", 
-      url: "https://www.tiktok.com/@kami.pria", 
-      label: "Community & Lifestyle", 
-      er: "66.70%",
-      avatar: "https://ui-avatars.com/api/?name=Kami+Pria&background=E53935&color=fff&size=150"
-    },
-    { 
-      id: 4, 
-      username: "@erenkiyotaka", 
-      url: "https://www.tiktok.com/@erenkiyotaka", 
-      label: "Creative Content", 
-      er: "22.88%",
-      avatar: "https://ui-avatars.com/api/?name=Eren+Kiyotaka&background=4CAF50&color=fff&size=150"
-    },
+    { id: 1, username: "@terramedia_", url: "https://www.tiktok.com/@terramedia_", label: "Media & Entertainment", er: "5.669%" },
+    { id: 2, username: "@alseventeen", url: "https://www.tiktok.com/@alseventeen", label: "Personal Branding", er: "11.644,74%" },
+    { id: 3, username: "@kami.pria", url: "https://www.tiktok.com/@kami.pria", label: "Community & Lifestyle", er: "66.70%" },
+    { id: 4, username: "@erenkiyotaka", url: "https://www.tiktok.com/@erenkiyotaka", label: "Creative Content", er: "22.88%" },
   ];
 
   return (
@@ -367,19 +339,11 @@ export default function Home() {
             >
               <div className="flex items-center justify-between mb-6">
                 
-                {/* WADAH FOTO PROFIL & BADGE TIKTOK */}
-                <div className="relative">
-                  <img 
-                    src={account.avatar} 
-                    alt={`Profile ${account.username}`}
-                    className="w-14 h-14 rounded-full object-cover border border-zinc-700 shadow-md group-hover:scale-105 transition-transform duration-300"
-                  />
-                  {/* Badge TikTok Kecil di Pojok Kanan Bawah Foto */}
-                  <div className="absolute -bottom-1 -right-1 bg-black rounded-full p-1 border border-zinc-700 shadow-lg">
-                    <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 15.68a6.34 6.34 0 006.26 6.32 6.32 6.32 0 006.21-6.32V10a8.28 8.28 0 004.53 1.35V7.93a4.77 4.77 0 01-2.41-.64c-.39-.24-.76-.53-1-.84z" />
-                    </svg>
-                  </div>
+                {/* WADAH LOGO TIKTOK KEMBALI */}
+                <div className="w-12 h-12 rounded-full bg-black border border-zinc-800 flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300 shadow-md">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 15.68a6.34 6.34 0 006.26 6.32 6.32 6.32 0 006.21-6.32V10a8.28 8.28 0 004.53 1.35V7.93a4.77 4.77 0 01-2.41-.64c-.39-.24-.76-.53-1-.84z" />
+                  </svg>
                 </div>
 
                 <div className="flex gap-2">
