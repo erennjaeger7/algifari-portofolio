@@ -60,12 +60,40 @@ export default function Home() {
     }
   ];
 
-  // Data Akun Social Media
+  // Data Akun Social Media dengan ER dan Avatar (Ganti link avatar dengan URL gambar asli Anda di Cloudinary)
   const socialAccounts = [
-    { id: 1, username: "@terramedia_", url: "https://www.tiktok.com/@terramedia_", label: "Media & Entertainment" },
-    { id: 2, username: "@alseventeen", url: "https://www.tiktok.com/@alseventeen", label: "Personal Branding" },
-    { id: 3, username: "@kami.pria", url: "https://www.tiktok.com/@kami.pria", label: "Community & Lifestyle" },
-    { id: 4, username: "@erenkiyotaka", url: "https://www.tiktok.com/@erenkiyotaka", label: "Creative Content" },
+    { 
+      id: 1, 
+      username: "@terramedia_", 
+      url: "https://www.tiktok.com/@terramedia_", 
+      label: "Media & Entertainment", 
+      er: "5.669%",
+      avatar: "https://ui-avatars.com/api/?name=Terra+Media&background=0D8ABC&color=fff&size=150"
+    },
+    { 
+      id: 2, 
+      username: "@alseventeen", 
+      url: "https://www.tiktok.com/@alseventeen", 
+      label: "Personal Branding", 
+      er: "11.644,74%",
+      avatar: "https://ui-avatars.com/api/?name=Alseventeen&background=1D1D1D&color=fff&size=150"
+    },
+    { 
+      id: 3, 
+      username: "@kami.pria", 
+      url: "https://www.tiktok.com/@kami.pria", 
+      label: "Community & Lifestyle", 
+      er: "66.70%",
+      avatar: "https://ui-avatars.com/api/?name=Kami+Pria&background=E53935&color=fff&size=150"
+    },
+    { 
+      id: 4, 
+      username: "@erenkiyotaka", 
+      url: "https://www.tiktok.com/@erenkiyotaka", 
+      label: "Creative Content", 
+      er: "22.88%",
+      avatar: "https://ui-avatars.com/api/?name=Eren+Kiyotaka&background=4CAF50&color=fff&size=150"
+    },
   ];
 
   return (
@@ -80,13 +108,13 @@ export default function Home() {
           <span className="text-[8px] md:text-xs tracking-widest text-zinc-500 font-bold uppercase">Professional Content Creative</span>
         </div>
 
-        {/* WADAH OVERLAP: Memaksa Spotlight, Foto, dan Teks bertumpuk sempurna di 1 titik pusat */}
+        {/* WADAH OVERLAP */}
         <div className="relative w-full h-[450px] sm:h-[550px] md:h-[850px] mt-10 md:mt-0 overflow-visible">
           
           {/* LAYER 0: SPOTLIGHT CAHAYA */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[750px] md:h-[750px] bg-white/60 md:bg-white/40 blur-[90px] md:blur-[130px] rounded-full pointer-events-none z-0" />
 
-          {/* LAYER 1: TEKS JUDUL (Posisinya sekarang di BELAKANG foto, dengan efek blur) */}
+          {/* LAYER 1: TEKS JUDUL */}
           <motion.h1
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -96,7 +124,7 @@ export default function Home() {
             CREATIVE <br /> STRATEGIST
           </motion.h1>
 
-          {/* LAYER 2: FOTO SILUET RAKSASA (Posisinya di DEPAN teks) */}
+          {/* LAYER 2: FOTO SILUET RAKSASA */}
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -335,17 +363,26 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group block p-6 rounded-3xl bg-zinc-900/40 border border-zinc-800 backdrop-blur-sm hover:bg-zinc-800/60 hover:border-zinc-600 transition-all duration-300"
+              className="group block p-6 rounded-3xl bg-zinc-900/40 border border-zinc-800 backdrop-blur-sm hover:bg-zinc-800/60 hover:border-zinc-600 transition-all duration-300 flex flex-col h-full"
             >
               <div className="flex items-center justify-between mb-6">
-                <div className="w-12 h-12 rounded-full bg-black border border-zinc-800 flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300 shadow-md">
-                  {/* TikTok Icon SVG */}
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 15.68a6.34 6.34 0 006.26 6.32 6.32 6.32 0 006.21-6.32V10a8.28 8.28 0 004.53 1.35V7.93a4.77 4.77 0 01-2.41-.64c-.39-.24-.76-.53-1-.84z" />
-                  </svg>
+                
+                {/* WADAH FOTO PROFIL & BADGE TIKTOK */}
+                <div className="relative">
+                  <img 
+                    src={account.avatar} 
+                    alt={`Profile ${account.username}`}
+                    className="w-14 h-14 rounded-full object-cover border border-zinc-700 shadow-md group-hover:scale-105 transition-transform duration-300"
+                  />
+                  {/* Badge TikTok Kecil di Pojok Kanan Bawah Foto */}
+                  <div className="absolute -bottom-1 -right-1 bg-black rounded-full p-1 border border-zinc-700 shadow-lg">
+                    <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 15.68a6.34 6.34 0 006.26 6.32 6.32 6.32 0 006.21-6.32V10a8.28 8.28 0 004.53 1.35V7.93a4.77 4.77 0 01-2.41-.64c-.39-.24-.76-.53-1-.84z" />
+                    </svg>
+                  </div>
                 </div>
+
                 <div className="flex gap-2">
-                  {/* Decorative Engagement Indicators */}
                   <div className="flex items-center gap-1 bg-black/50 px-2 py-1 rounded-full border border-zinc-800">
                     <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
                     <span className="text-[9px] font-bold text-zinc-300">ACTIVE</span>
@@ -353,18 +390,28 @@ export default function Home() {
                 </div>
               </div>
               
-              <div>
+              <div className="flex-grow">
                 <span className="inline-block px-2 py-1 mb-3 text-[10px] font-semibold tracking-wide text-zinc-900 bg-zinc-100 rounded-full">
                   {account.label}
                 </span>
-                <h3 className="font-['Helvetica_Neue',_Helvetica,_Arial,_sans-serif] font-bold text-xl text-white mb-1 group-hover:text-indigo-400 transition-colors">
+                <h3 className="font-['Helvetica_Neue',_Helvetica,_Arial,_sans-serif] font-bold text-xl text-white mb-2 group-hover:text-indigo-400 transition-colors">
                   {account.username}
                 </h3>
-                <p className={`${montserrat.className} text-zinc-500 text-xs flex items-center gap-1 mt-4`}>
-                  Lihat Profil & Engagement
-                  <svg className="w-3 h-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </p>
+                
+                <div className="flex items-center gap-2 mb-4">
+                  <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                  </svg>
+                  <span className={`${montserrat.className} text-sm font-bold text-green-400 drop-shadow-[0_0_5px_rgba(74,222,128,0.4)]`}>
+                    ER: {account.er}
+                  </span>
+                </div>
               </div>
+
+              <p className={`${montserrat.className} text-zinc-500 text-xs flex items-center gap-1 mt-auto pt-4 border-t border-zinc-800/50`}>
+                Lihat Profil
+                <svg className="w-3 h-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </p>
             </motion.a>
           ))}
         </div>
